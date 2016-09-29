@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <assert.h>
 
+#define dot_product(a,b) ((a[0]*b[0])+(a[1]*b[1])+(a[2]*b[2]))
+
 static inline
 void normalize(double *v)
 {
@@ -61,7 +63,7 @@ void cross_product(const double *v1, const double *v2, double *out)
     out[1] = v1[2] * v2[0] - v1[0] * v2[2];
     out[2] = v1[0] * v2[1] - v1[1] * v2[0];
 }
-
+/*
 static inline
 double dot_product(const double *v1, const double *v2)
 {
@@ -70,7 +72,7 @@ double dot_product(const double *v1, const double *v2)
     dp += v1[1] * v2[1];
     dp += v1[2] * v2[2];
     return dp;
-}
+}*/
 
 static inline
 void scalar_triple_product(const double *u, const double *v, const double *w,
@@ -95,7 +97,7 @@ void subtract_vector(const double *a, const double *b, double *out) __attribute_
 void multiply_vectors(const double *a, const double *b, double *out) __attribute__((always_inline));
 void multiply_vector(const double *a, double b, double *out) __attribute__((always_inline));
 void cross_product(const double *v1, const double *v2, double *out) __attribute__((always_inline));
-double dot_product(const double *v1, const double *v2) __attribute__((always_inline));
+//double dot_product(const double *v1, const double *v2) __attribute__((always_inline));
 void scalar_triple_product(const double *u, const double *v, const double *w,
                            double *out) __attribute__((always_inline));
 double scalar_triple(const double *u, const double *v, const double *w) __attribute__((always_inline));
